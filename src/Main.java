@@ -33,7 +33,7 @@ public class Main {
     }
     public static void listar(List<Paciente>listaPacientes){
         if (listaPacientes.isEmpty()){
-            System.out.println("A lista está vazia,tente novamente mais tarde");
+            System.out.println("A lista está vazia,tente novamente mais tarde...");
         }else{
             for (Paciente pacientes : listaPacientes){
                 System.out.println(pacientes);
