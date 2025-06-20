@@ -9,14 +9,15 @@ public class Main {
         int pacientesCadastrados = 0;
         int opcao = 0;
 
-        while (opcao != 5) {
+        while (opcao != 6) {
             System.out.println("---Bem vindo ao ClinicsMed---");
             System.out.println("--Escolha uma opção--");
             System.out.println("-1 Cadastrar um usuario");
             System.out.println("-2 Listar os usuarios");
             System.out.println("-3 Buscar por cpf");
             System.out.println("-4 Remover paciente pelo cpf");
-            System.out.println("-5 sair");
+            System.out.println("-5 atualizar paciente");
+            System.out.println("-6 Sair ");
             opcao = scanner.nextInt();
             scanner.nextLine();
 
@@ -33,7 +34,9 @@ public class Main {
 
                 case 4:Main.remover(scanner,listaPacientes);
                     break;
-                case 5:
+                case 5:Main.atualizar(scanner,listaPacientes);
+                    break;
+                case 6:
                     System.out.println("Finaliando...");
                     break;
             }
@@ -102,6 +105,107 @@ public class Main {
                 System.out.println("Este cpf não está em nossos registros");
             }
 
+        }
+
+        public static  void atualizar(Scanner sc,List<Paciente>listaPacientes){
+            System.out.println("Digite o cpf do paciente que deseja atualizar os dados:");
+            Long cpfBuscando = sc.nextLong();
+            boolean pacienteEncontrado = false;
+            int opcao = 0;
+            for (int i = 0; i < listaPacientes.size(); i++) {
+                if(listaPacientes.get(i).getCpf().equals(cpfBuscando)){
+                    pacienteEncontrado = true;
+
+                    while(opcao != 5){
+                        System.out.println("Quais dados deseja atualizar ?");
+                        System.out.println("1 - Nome");
+                        System.out.println("2 - idade");
+                        System.out.println("3 - cpf");
+                        System.out.println("4 - todos os dados");
+                        System.out.println("5 - sair desta pagina");
+                        opcao = sc.nextInt();
+                        sc.nextLine();
+
+                        switch (opcao){
+
+                            case 1:
+                                System.out.println("Digite o novo nome do paciente:");
+                                String novoNome = sc.nextLine();
+
+                                    listaPacientes.get(i).getNome();
+                                    if (novoNome.equals(listaPacientes.get(i).getNome())){
+                                        System.out.println("O nome está igual ao que era antes!!");
+                                    }else{
+                                        listaPacientes.get(i).setNome(novoNome);
+
+                                    }
+
+                                break;
+                            case 2:
+                                System.out.println("Digite a idade que deseja atribuir:");
+                                int novaIdade = sc.nextInt();
+                                    listaPacientes.get(i).getIdade();
+                                    if (novaIdade == listaPacientes.get(i).getIdade()){
+                                        System.out.println("Está ja era a idade do paciente!!");
+                                    }else{
+                                        listaPacientes.get(i).setIdade(novaIdade);
+
+                                    }
+
+
+                                break;
+                            case 3:
+                                System.out.println("Digite o cpf do paciente atualizado:");
+                                Long cpfNovo = sc.nextLong();
+
+                                    listaPacientes.get(i).getCpf();
+                                    if (cpfNovo.equals(listaPacientes.get(i).getCpf())){
+                                        System.out.println("O CPF Continua o mesmo!");
+                                    }else{
+                                        listaPacientes.get(i).setCpf(cpfNovo);
+
+                                    }
+
+
+                                break;
+                            case 4:
+                                System.out.println("Digite o nome atualizado:");
+                                sc.nextLine();
+                                String nomeNovo = sc.nextLine();
+                                System.out.println("Digite a idade atualizada:");
+                                int idadeNova = sc.nextInt();
+                                sc.nextLine();
+                                System.out.println("Digite o cpf atualizado:");
+                                Long cpfAtt = sc.nextLong();
+                                sc.nextLine();
+
+                                    if (!nomeNovo.equals(listaPacientes.get(i).getNome())){
+                                        listaPacientes.get(i).setNome(nomeNovo);
+                                    }else{
+                                        System.out.println("O nome está igual");
+                                    }
+                                    if (idadeNova != listaPacientes.get(i).getIdade()) {
+                                        listaPacientes.get(i).setIdade(idadeNova);
+                                    }else{
+                                        System.out.println("a idade esta igual!");
+                                    }
+                                    if (!cpfAtt.equals(listaPacientes.get(i).getCpf())) {
+                                        listaPacientes.get(i).setCpf(cpfAtt);
+                                    }else{
+                                        System.out.println("o cpf esta igual");
+                                    }
+                                break;
+                            case 5:
+                                System.out.println("Saindo deste menu...");
+                                break;
+                        }
+                    }
+                }
+            }
+            if(!pacienteEncontrado){
+                System.out.println("O cpf informado não está em nossos registros");
+
+            }
         }
 
     }
