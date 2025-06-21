@@ -1,11 +1,8 @@
-import java.util.Scanner;
-
 public class Paciente {
 
     private String nome;
     private int idade;
     private Long cpf;
-    private Scanner scanner;
 
     public Paciente() {
     }
