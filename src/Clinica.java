@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Clinica {
 
     Scanner sc = new Scanner(System.in);
-    int registed = 0;
-    List<Paciente> listPacients = new ArrayList<>();
-    boolean registeredPacient = false;
+    int registrado = 0;
+    List<Paciente> listaPacientes = new ArrayList<>();
+    boolean pacienteRegistrado = false;
     int opcao = 0;
 
-    public void createPacient() {
-        registeredPacient = false;
+    public void criarPaciente() {
+        pacienteRegistrado = false;
         System.out.println("Digite os dados do paciente:");
         System.out.println("Nome:");
         String name = sc.nextLine();
@@ -23,15 +23,15 @@ public class Clinica {
         sc.nextLine();
 
 
-        for (Paciente p : listPacients) {
+        for (Paciente p : listaPacientes) {
             if (p.getCpf().longValue() == cpf) {
-                registeredPacient = true;
+                pacienteRegistrado = true;
                 break;
             }
         }
-        if (!registeredPacient) {
-            listPacients.add(new Paciente(name, age, cpf));
-            registed++;
+        if (!pacienteRegistrado) {
+            listaPacientes.add(new Paciente(name, age, cpf));
+            registrado++;
             System.out.println("Paciente adicionado com sucesso ao sistema!!");
 
         } else {
@@ -40,12 +40,12 @@ public class Clinica {
 
     }
 
-    public void listPacient() {
-        if (listPacients.isEmpty()) {
+    public void listarPacientes() {
+        if (listaPacientes.isEmpty()) {
             System.out.println("Até o momento nenhum usuario foi cadastrado!");
         } else {
             System.out.println("Os usuarios são:");
-            for (Paciente p : listPacients) {
+            for (Paciente p : listaPacientes) {
                 System.out.println(p);
 
             }
@@ -53,16 +53,16 @@ public class Clinica {
 
     }
 
-    public void searchByCpf() {
+    public void buscaPorCpf() {
         System.out.println("Digite o CPF do usuario que está buscando:");
         long cpfProcurado = sc.nextLong();
         boolean encontrado = false;
-        for (int i = 0; i < listPacients.size(); i++) {
-            if (listPacients.get(i).getCpf().longValue() == cpfProcurado) {
+        for (int i = 0; i < listaPacientes.size(); i++) {
+            if (listaPacientes.get(i).getCpf().longValue() == cpfProcurado) {
                 encontrado = true;
-                System.out.println(listPacients.get(i).getNome());
-                System.out.println(listPacients.get(i).getIdade());
-                System.out.println(listPacients.get(i).getCpf());
+                System.out.println(listaPacientes.get(i).getNome());
+                System.out.println(listaPacientes.get(i).getIdade());
+                System.out.println(listaPacientes.get(i).getCpf());
             }
 
         }
@@ -72,15 +72,15 @@ public class Clinica {
 
     }
 
-    public void removePacient() {
+    public void removerPaciente() {
         System.out.println("Digite o cpf do usuario que deseja remover:");
         long cpfProcurado = sc.nextLong();
         sc.nextLine();
         boolean encontrado = false;
-        for (int i = 0; i < listPacients.size(); i++) {
-            if (listPacients.get(i).getCpf().longValue() == cpfProcurado) {
+        for (int i = 0; i < listaPacientes.size(); i++) {
+            if (listaPacientes.get(i).getCpf().longValue() == cpfProcurado) {
                 encontrado = true;
-                listPacients.remove(i);
+                listaPacientes.remove(i);
                 break;
             }
 
@@ -92,13 +92,13 @@ public class Clinica {
         }
     }
 
-    public void updatePacientData() {
+    public void atualizarDadosPacient() {
         System.out.println("Digite o cpf do paciente que está querendo atualizar os dados:");
         Long cpfProcurado = sc.nextLong();
         sc.nextLine();
-        for (int i = 0; i < listPacients.size(); i++) {
-            if (cpfProcurado.equals(listPacients.get(i).getCpf())) {
-                registeredPacient = true;
+        for (int i = 0; i < listaPacientes.size(); i++) {
+            if (cpfProcurado.equals(listaPacientes.get(i).getCpf())) {
+                pacienteRegistrado = true;
                 opcao = 0;
 
                 while (opcao != 5) {
@@ -116,30 +116,30 @@ public class Clinica {
                         case 1:
 
                             System.out.println("Digite o novo nome do paciente:");
-                            String attName = sc.nextLine();
-                            if (attName.equals(listPacients.get(i).getNome())) {
+                            String attNome = sc.nextLine();
+                            if (attNome.equals(listaPacientes.get(i).getNome())) {
                                 System.out.println("O nome está igual ao nome já registrado!!");
                             } else {
-                                listPacients.get(i).setNome(attName);
+                                listaPacientes.get(i).setNome(attNome);
                             }
                             break;
                         case 2:
                             System.out.println("Digite a nova idade do paciente:");
-                            int attAge = sc.nextInt();
-                            if (attAge == listPacients.get(i).getIdade()) {
+                            int attIdade = sc.nextInt();
+                            if (attIdade == listaPacientes.get(i).getIdade()) {
                                 System.out.println("A idade está igual a idade já registrada!!");
                             } else {
-                                listPacients.get(i).setIdade(attAge);
+                                listaPacientes.get(i).setIdade(attIdade);
                             }
                             break;
                         case 3:
                             System.out.println("Digite o novo CPF do paciente:");
                             long attCpf = sc.nextLong();
 
-                            if (attCpf == listPacients.get(i).getCpf()) {
+                            if (attCpf == listaPacientes.get(i).getCpf()) {
                                 System.out.println("O CPF está igual ao CPF já registrado");
                             } else {
-                                listPacients.get(i).setCpf(attCpf);
+                                listaPacientes.get(i).setCpf(attCpf);
                             }
 
 
@@ -149,26 +149,26 @@ public class Clinica {
                                     System.out.println("Nome:");
                                     String atName = sc.nextLine();
                                     System.out.println("Idade:");
-                                    int attIdade = sc.nextInt();
+                                    int atualizaIdade = sc.nextInt();
                                     System.out.println("CPF:");
                                     long attCPF = sc.nextLong();
-                                    if (!atName.equals(listPacients.get(i).getNome())) {
-                                        listPacients.get(i).setNome(atName);
+                                    if (!atName.equals(listaPacientes.get(i).getNome())) {
+                                        listaPacientes.get(i).setNome(atName);
                                     } else {
                                         System.out.println("Esse nome é o mesmo que ja está registrado");
                                     }
-                                    if (attIdade != listPacients.get(i).getIdade()) {
-                                        listPacients.get(i).setIdade(attIdade);
+                                    if (atualizaIdade != listaPacientes.get(i).getIdade()) {
+                                        listaPacientes.get(i).setIdade(atualizaIdade);
                                     } else {
                                         System.out.println("Essa idade é a mesma que ja está registrada");
 
                                     }
-                                    if (attCPF != listPacients.get(i).getCpf()) {
-                                        listPacients.get(i).setCpf(attCPF);
+                                    if (attCPF != listaPacientes.get(i).getCpf()) {
+                                        listaPacientes.get(i).setCpf(attCPF);
                                     } else {
                                         System.out.println("Esse CPF é o mesmo que ja está registrado");
                                     }
-                                    System.out.println("Os dados atualizados são:" + listPacients.get(i));
+                                    System.out.println("Os dados atualizados são:" + listaPacientes.get(i));
                                     break;
                         case 5:
                             System.out.println("Finalizando...");
@@ -184,7 +184,7 @@ public class Clinica {
 
 
                             }
-            if(!registeredPacient){
+            if(!pacienteRegistrado){
                 System.out.println("CPF Não consta nos registros");
             }
                     }

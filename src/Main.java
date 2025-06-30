@@ -20,18 +20,18 @@ public class Main {
             scanner.nextLine();
 
             switch (opcao) {
-                case 1:clinica.createPacient();
+                case 1:clinica.criarPaciente();
                     break;
 
-                case 2:clinica.listPacient();
+                case 2:clinica.listarPacientes();
                     break;
 
-                case 3:clinica.searchByCpf();
+                case 3:clinica.buscaPorCpf();
                     break;
 
-                case 4:clinica.removePacient();
+                case 4:clinica.removerPaciente();
                     break;
-                case 5:clinica.updatePacientData();
+                case 5:clinica.atualizarDadosPacient();
                     break;
                 case 6:
                     System.out.println("Finaliando...");
