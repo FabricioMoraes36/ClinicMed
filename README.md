@@ -25,7 +25,7 @@ Conceitos aplicados:
 
 --------
 
-Proimos passos:
+Proximos passos:
 
 -Persistir os dados em memoria
 -Criar uma interface com  JavaFX ou Swing
