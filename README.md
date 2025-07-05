@@ -1,35 +1,21 @@
-ClinicMed
-Este projeto é um sistema simples de cadastro de pacientes feito em Java,focado no aprendizado de programação orientada a objeto(POO).
+🏥 ClinicMed
+Este repositório contém os exercícios e os estudos do curso Batismo de Java.
 
-Sobre o projeto
-ClinicMed é um sistema de terminal onde é possível cadastrar, listar, buscar, remover e atualizar dados de pacientes.  
-O projeto foi construído com o objetivo de praticar organização de código, boas práticas e estruturação de sistemas orientados a objetos em Java e aplicar o conceito de CRUD.
---------
+Sobre o curso
+Nome: Batismo de Java
+Objetivo: Aprender os fundamentos da linguagem Java por meio de exercícios práticos, do Java Core até Spring Boot.
 
-Funcionalidades do sistema:
+📚 Objetivo
+Praticar os fundamentos de Java com foco em POO
 
--Cadastro de pacientes
--Listagem de todos os pacientes cadastrados
--Busca de paciente por CPF
--Atualização de dados (nome, idade e CPF)
--Remoção de pacientes
+Criar um sistema CRUD funcional via terminal
 
---------
+Aprender sobre estrutura de projetos, boas práticas e validação de dados
 
-Conceitos aplicados:
+🚀 Tecnologias utilizadas
+Java 17
 
--Programação Orientada a Objetos (POO)
--Separação de responsabilidades (Main, Clinica, Paciente)
--Menu interativo via terminal
--Boas práticas com listas e validação de dados
+Execução via terminal
+---
 
---------
-
-Proximos passos:
-
--Persistir os dados em memoria
--Criar uma interface com  JavaFX ou Swing
--Migrar o projeto para uma versão web com o Spring Boot
-
-Para executar o codigo clone o repositório:
-git clone [https://github.com/seu-usuario/clinics-med.git](https://github.com/FabricioMoraes36/ClinicMed)
+⏳ **Status:** em andamento – repositório de estudos do curso *Batismo de Java*.
